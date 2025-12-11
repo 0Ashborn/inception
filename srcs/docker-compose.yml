@@ -40,7 +40,6 @@ services:
     build: ./nginx
     container_name: nginx
     env_file: ./.env
-    # Only expose 443 to host (project rule: NGINX is sole entrypoint)
     ports:
       - "443:443"
     volumes:
