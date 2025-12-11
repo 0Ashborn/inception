@@ -1,0 +1,56 @@
+services:
+  mariadb:
+    build: ./mariadb
+    container_name: mariadb
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - /home/zsaghir/data/mariadb:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - wp-network
+
+  wordpress:
+    build: ./wordpress
+    container_name: wordpress
+    env_file: ./.env
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      WP_URL: ${WP_URL}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN: ${WP_ADMIN}
+      WP_ADMIN_PASS: ${WP_ADMIN_PASS}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+    volumes:
+      - /home/zsaghir/data/wordpress:/var/www/wordpress
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    networks:
+      - wp-network
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    env_file: ./.env
+    # Only expose 443 to host (project rule: NGINX is sole entrypoint)
+    ports:
+      - "443:443"
+    volumes:
+      - /home/zsaghir/data/wordpress:/var/www/wordpress
+    depends_on:
+      - wordpress
+    restart: unless-stopped
+    networks:
+      - wp-network
+
+networks:
+  wp-network:
+    driver: bridge

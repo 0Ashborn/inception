@@ -1,0 +1,13 @@
+[mysqld]
+user = mysql
+bind-address = 0.0.0.0
+socket = /run/mysqld/mysqld.sock
+
+# Basic tuning
+innodb_buffer_pool_size = 128M
+max_allowed_packet = 64M
+skip-host-cache
+skip-name-resolve
+
+[client]
+port = 3306
