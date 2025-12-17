@@ -27,7 +27,7 @@
    DB_HOST=mariadb
    
    # WordPress
-   WP_URL=localhost
+   WP_URL=https://zsaghir.42.fr
    WP_TITLE="My WordPress Site"
    WP_ADMIN=admin
    WP_ADMIN_PASS=adminpass
@@ -69,8 +69,8 @@ inception/
    ```
 
 2. **Access the services**
-   - WordPress site: https://localhost/wordpress
-   - WordPress admin: https://localhost/wordpress/wp-admin
+   - WordPress site: https://zsaghir.42.fr/
+   - WordPress admin: https://zsaghir.42.fr/wp-admin
 
 3. **Making Changes**
    - Update configuration files in their respective directories

@@ -40,7 +40,7 @@ make down
 
 ### Accessing WordPress
 1. Open your web browser
-2. Navigate to `https://localhost/wordpress`
+2. Navigate to `https://zsaghir.42.fr/`
 3. Follow the WordPress setup wizard to complete the installation
 
 ### Managing the Services

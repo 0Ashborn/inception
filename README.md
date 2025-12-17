@@ -33,9 +33,7 @@ This project aims to broaden your knowledge of system administration by using Do
    ```
 
 3. Access the services:
-   - Website: https://localhost
-   - WordPress: https://localhost/wordpress
-   - Adminer: https://localhost:8080
+   - Website: https://zsaghir.42.fr
 
 ### Available Make Commands
 - `make`: Build and start all services
