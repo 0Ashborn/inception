@@ -7,18 +7,15 @@ mkdir -p /run/mysqld
 chown -R mysql:mysql /run/mysqld
 
 
-# Detect first run
 if [ ! -d "$MYSQL_DIR/mysql" ]; then
     echo "[MariaDB] First run — initializing..."
 
-    # Prepare DB structure
     mysql_install_db --user=mysql --ldata="$MYSQL_DIR" > /dev/null
 
     echo "[MariaDB] Starting temporary MariaDB instance..."
     mariadbd --user=mysql --skip-networking --socket=/run/mysqld/mysqld.sock &
     TEMP_PID=$!
 
-    # Wait for temp server
     until mariadb -u root --socket=/run/mysqld/mysqld.sock -e "SELECT 1" &>/dev/null; do
         sleep 1
     done

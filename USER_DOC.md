@@ -6,7 +6,7 @@ This documentation provides guidance for end users and administrators on how to 
 ## Available Services
 
 ### Web Services
-- **WordPress**: Blog/CMS platform at `https://localhost/wordpress`
+- **WordPress**: Blog/CMS platform at `https://zsaghir.42.fr/`
 - **Nginx Web Server**: Serves the WordPress site on port 443 (HTTPS)
 - **MariaDB**: Database server for WordPress
 

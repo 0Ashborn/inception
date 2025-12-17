@@ -1,14 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-# Wait for MariaDB using provided env vars
 echo "[wordpress] waiting for mariadb..."
 until mariadb -h"${DB_HOST}" -u"${DB_USER}" -p"${DB_PASSWORD}" -e "SELECT 1;" &>/dev/null; do
     sleep 2
 done
 echo "[wordpress] mariadb reachable"
 
-# If wp core not present, use wp-cli to download/install at container runtime
 if [ ! -f wp-settings.php ]; then
     echo "[wordpress] downloading WordPress core..."
     wp core download --allow-root
@@ -35,10 +33,18 @@ if ! wp core is-installed --allow-root; then
         --admin_email="${WP_ADMIN_EMAIL}"
 fi
 
-# ensure permissions
+if ! wp user get "${WP_USER}" --allow-root &>/dev/null; then
+    echo "[wordpress] creating normal user..."
+    wp user create \
+        "${WP_USER}" \
+        "${WP_USER_EMAIL}" \
+        --user_pass="${WP_USER_PASS}" \
+        --role=author \
+        --allow-root
+fi
+
 chown -R www-data:www-data /var/www/wordpress
 
-# Start php-fpm in foreground (no infinite loops)
 echo "[wordpress] starting php-fpm..."
 
 mkdir -p /run/php

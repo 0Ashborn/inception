@@ -120,18 +120,21 @@ docker-compose -f srcs/docker-compose.yml exec <service_name> /bin/bash
 
 ## Environment Variables
 
-| Variable           | Description                       | Example Value        |
+| Variable           | Description                       | Example Value       |
 |--------------------|-----------------------------------|---------------------|
-| `DB_ROOT_PASSWORD` | Root password for MariaDB        | `your_db_password`  |
-| `DB_NAME`          | WordPress database name          | `wordpress`         |
-| `DB_USER`          | WordPress database user          | `wpuser`            |
-| `DB_PASSWORD`      | WordPress database password      | `wppassword`        |
-| `DB_HOST`          | Database hostname                | `mariadb`           |
-| `WP_URL`           | WordPress site URL               | `localhost`         |
-| `WP_TITLE`         | Site title                       | `My WordPress Site` |
-| `WP_ADMIN`         | Admin username                   | `admin`             |
-| `WP_ADMIN_PASS`    | Admin password                   | `adminpass`         |
-| `WP_ADMIN_EMAIL`   | Admin email                      | `admin@example.com` |
+| `DB_ROOT_PASSWORD` | The Domain name of our Website    | `zsaghir.42.fr`  |
+| `DB_ROOT_PASSWORD` | Root password for MariaDB         | `zsaghir123@@`  |
+| `DB_NAME`          | WordPress database name           | `mariadb`         |
+| `DB_USER`          | WordPress database user           | `wpuser`            |
+| `DB_PASSWORD`      | WordPress database password       | `zsaghir123@@`        |
+| `WP_URL`           | WordPress site URL                | `https://zsaghir.42.fr`         |
+| `WP_TITLE`         | Site title                        | `Inception` |
+| `WP_ADMIN`         | Admin username                    | `zsaghir_owner`             |
+| `WP_ADMIN_PASS`    | Admin password                    | `zsaghir123@@`         |
+| `WP_ADMIN_EMAIL`   | Admin email                       | `zsaghir@1337.ma` |
+| `WP_USER`          | Admin username                    | `test`             |
+| `WP_USER_PASS`     | Admin password                    | `test123@@`         |
+| `WP_USER_EMAIL`    | Admin email                       | `test@gmail.com` |
 
 ## Security Considerations
 
