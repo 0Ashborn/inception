@@ -5,6 +5,8 @@
 ## Description
 This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in a new personal virtual machine. The project requires setting up a small infrastructure composed of different services using Docker Compose.
 
+![architecture](./architecture.png)
+
 ### Key Components
 - **Nginx**: Web server with TLS encryption (SSL/TLS)
 - **WordPress + PHP-FPM**: Blog/CMS platform
